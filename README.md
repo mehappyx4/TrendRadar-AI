@@ -1,6 +1,6 @@
 # TrendRadar AI
 
-![TrendRadar AI Preview](https://image.thum.io/get/width/1200/crop/800/https://trendradar-ai-zeta.vercel.app)
+![TrendRadar AI Preview](./preview.png)
 
 TrendRadar AI คือระบบ Marketplace Intelligence แดชบอร์ดที่ช่วยให้คุณค้นหาโอกาสของสินค้าจาก Shopee Feed และ Meta Affiliate โดยเชื่อมต่อข้อมูลและวิเคราะห์แนวทางการขาย แอด และคอนเทนต์โดยอัตโนมัติ
 
