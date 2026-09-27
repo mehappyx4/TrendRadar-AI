@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TrendRadar AI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="TrendRadar navigation">
+    <div class="brand-block">
+      <div class="brand-mark">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trending-up"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+      </div>
+      <div>
+        <strong>TrendRadar AI</strong>
+        <span>Marketplace Intelligence</span>
+      </div>
+    </div>
+    
+    <nav class="nav-list">
+      <div class="nav-group">
+        <p>ค้นหา</p>
+        <button class="nav-item active" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg>
+          <span><strong>ภาพรวมเรดาร์</strong><small>Overview</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <span><strong>ตั้งค่าเรดาร์สินค้า</strong><small>Radar Setup</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.27 9 5.15"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" x2="12" y1="22" y2="12"></line><circle cx="18.5" cy="15.5" r="2.5"></circle><path d="M20.27 17.27 22 19"></path></svg>
+          <span><strong>ค้นหาโอกาสสินค้า</strong><small>Product Finder</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+          <span><strong>สินค้าที่บันทึกไว้</strong><small>Saved Products</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path></svg>
+          <span><strong>ตลาด / ร้าน / ครีเอเตอร์</strong><small>Market Density</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"></path><circle cx="10" cy="8" r="5"></circle><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path></svg>
+          <span><strong>แหล่งสัญญาณ FB/IG</strong><small>Signal Sources</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+          <span><strong>เชื่อมต่อข้อมูล</strong><small>Shopee + Meta</small></span>
+        </button>
+      </div>
+
+      <div class="nav-group">
+        <p>วิเคราะห์</p>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+          <span><strong>Content Tracker</strong><small>Selling content</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3"></path></svg>
+          <span><strong>AI Product Insight</strong><small>Product actions</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"></path><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path></svg>
+          <span><strong>วิเคราะห์มุมแอด</strong><small>Ad angles</small></span>
+        </button>
+      </div>
+
+      <div class="nav-group">
+        <p>วางแผน</p>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"></path><path d="M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="6.5" cy="9.5" r=".5" fill="currentColor"></circle></svg>
+          <span><strong>สร้างข้อเสนอ</strong><small>Product offers</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+          <span><strong>Affiliate Content Planner</strong><small>Content plan</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>
+          <span><strong>Outreach Message</strong><small>Shop / Creator / Supplier</small></span>
+        </button>
+      </div>
+
+      <div class="nav-group">
+        <p>จัดการ</p>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+          <span><strong>รายงาน</strong><small>Export reports</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+          <span><strong>Settings</strong><small>System setup</small></span>
+        </button>
+      </div>
+
+      <div class="nav-group">
+        <p>ช่วยเหลือ</p>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+          <span><strong>Installation Guide</strong><small>Setup manual</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"></path><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"></path></svg>
+          <span><strong>คู่มือใช้งาน</strong><small>How to use</small></span>
+        </button>
+        <button class="nav-item" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+          <span><strong>Pricing / License</strong><small>Lifetime deal</small></span>
+        </button>
+      </div>
+    </nav>
+
+    <details class="plan-card">
+      <summary>
+        <span>แพ็กเกจปัจจุบัน</span>
+        <strong>Pro Plan</strong>
+        <small>ใช้งานอยู่</small>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+      </summary>
+      <div class="plan-body">
+        <p>รีเซ็ตรอบถัดไป: 22 ก.ค. 2026</p>
+        <span>เครดิตคงเหลือ</span>
+        <strong>12,450 / 20,000</strong>
+        <div class="progress-bar"><div class="progress-fill" style="width: 62%;"></div></div>
+        <button type="button">อัปเกรดแพ็กเกจ</button>
+      </div>
+    </details>
+  </aside>
+
+  <main class="workspace">
+    <header class="topbar">
+      <button class="icon-button mobile-only" type="button" aria-label="Open navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path></svg>
+      </button>
+
+      <form class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+        <input placeholder="ค้นหาสินค้า คีย์เวิร์ด มุมคอนเทนต์..." value="">
+      </form>
+
+      <div class="topbar-actions">
+        <button class="select-button source-select" type="button">
+          <span class="source-icon">S</span>
+          <span><strong>Shopee Feed</strong><small>ข้อมูลสินค้านำเข้า</small></span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+
+        <button class="latest-import-chip" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+          <span><strong>รอบข้อมูลล่าสุด</strong><small>04 ก.ค. 2026 01:23 · 359 สินค้า</small></span>
+        </button>
+
+        <div class="live-clock">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16.5 12"></polyline></svg>
+          <span>09:40:48</span><small>04 ก.ค. 2026</small>
+        </div>
+
+        <div class="language-toggle">
+          <button class="selected" type="button">TH</button>
+          <button type="button">EN</button>
+        </div>
+
+        <button class="export-button" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg> 
+          ส่งออก
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+
+        <button class="icon-button topbar-notification" type="button" aria-label="Notifications">
+          <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg>
+        </button>
+
+        <div class="user-profile">
+          <div class="avatar">W</div>
+          <div class="profile-copy">
+            <strong>Wansavang</strong>
+            <small>Owner</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="workspace-inner">
+      <section class="command-header">
+        <div>
+          <h1>ภาพรวมเรดาร์</h1>
+          <p>Shopee Feed + Meta Affiliate Radar</p>
+        </div>
+        <div class="header-actions">
+          <button class="secondary-button" type="button">Upload CSV</button>
+          <button class="primary-button" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+            Scan Shopee Feed
+          </button>
+        </div>
+      </section>
+
+      <div class="inline-notice success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+        <span><strong>โหมดข้อมูลจริง</strong><small>Dashboard นี้อ่านจาก product store ล่าสุด: 008.csv</small></span>
+      </div>
+
+      <section class="today-signal">
+        <div class="radar-visual">
+          <div class="radar-circle rc-1"></div>
+          <div class="radar-circle rc-2"></div>
+          <div class="radar-circle rc-3"></div>
+          <div class="radar-sweep"></div>
+          <span class="radar-dot main"></span>
+          <span class="radar-dot side"></span>
+        </div>
+        <div class="today-signal-copy">
+          <p>ข้อมูลจริงล่าสุด</p>
+          <h2>359 สินค้า Shopee ที่ import แล้ว</h2>
+          <span>สินค้าคะแนนสูงสุดตอนนี้คือ OUKEYA BLINK BLINK BLUSH โอกิยะ บลิงค์ บลิงค์ บลัช บลัชออน 2 ช่อง พร้อมชิมเมอร์เพิ่มความเป็นประกายให้กับใบหน้า ด้วย score 97. แหล่งข้อมูล: 008.csv</span>
+          <div class="today-actions">
+            <button class="primary-button" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.27 9 5.15"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" x2="12" y1="22" y2="12"></line><circle cx="18.5" cy="15.5" r="2.5"></circle><path d="M20.27 17.27 22 19"></path></svg> ดูโอกาสสินค้า
+            </button>
+            <button class="secondary-button" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg> สแกน Shopee Feed
+            </button>
+            <button class="secondary-button" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 21a8 8 0 0 0-16 0"></path><circle cx="10" cy="8" r="5"></circle><path d="M22 20c0-3.37-2-6.5-4-8a5 5 0 0 0-.45-8.3"></path></svg> FB/IG Signals
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="signal-grid">
+        <article class="signal-card blue">
+          <span class="metric-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><path d="m7.5 4.27 9 5.15"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" x2="12" y1="22" y2="12"></line><circle cx="18.5" cy="15.5" r="2.5"></circle><path d="M20.27 17.27 22 19"></path></svg>
+          </span>
+          <div><small>สินค้าที่จัดเก็บ</small><strong>359</strong><em>008.csv</em></div>
+        </article>
+        <article class="signal-card green">
+          <span class="metric-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          </span>
+          <div><small>พร้อมทำแอด</small><strong>129</strong><em>จาก feed ที่นำเข้า</em></div>
+        </article>
+        <article class="signal-card amber">
+          <span class="metric-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+          </span>
+          <div><small>พร้อมทำคอนเทนต์</small><strong>68</strong><em>จาก feed ที่นำเข้า</em></div>
+        </article>
+        <article class="signal-card violet">
+          <span class="metric-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"></path><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"></path><path d="M2 7h20"></path><path d="M22 7v3a2 2 0 0 1-2 2a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12a2 2 0 0 1-2-2V7"></path></svg>
+          </span>
+          <div><small>เฝ้าดู</small><strong>162</strong><em>ต้องตรวจเพิ่ม</em></div>
+        </article>
+        <article class="signal-card blue">
+          <span class="metric-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"></path><path d="M3 12h18"></path><rect x="3" y="3" width="18" height="18" rx="2"></rect></svg>
+          </span>
+          <div><small>คะแนนเฉลี่ย</small><strong>73</strong><em>คะแนน Shopee</em></div>
+        </article>
+        <article class="signal-card red">
+          <span class="metric-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M13 8H7"></path><path d="M17 12H7"></path></svg>
+          </span>
+          <div><small>แถวที่ข้าม</small><strong>0</strong><em>ข้อมูลขาดหรือเกินลิมิต</em></div>
+        </article>
+      </section>
+
+      <section class="overview-stack">
+        <div class="left-stack">
+          <section class="panel opportunity-board">
+            <div class="panel-header">
+              <div>
+                <h2>โอกาสสินค้าวันนี้</h2>
+                <p>อ่านจาก Shopee feed + Meta signal แล้วจัดเป็นกลุ่มที่ต้องทำต่อ</p>
+              </div>
+              <button class="secondary-button" type="button">ดูวิธีคิดคะแนน</button>
+            </div>
+            
+            <div class="opportunity-groups">
+              <article class="opportunity-group green">
+                <div><h3>โอกาสสูงก่อน</h3><span>ควรทำต่อก่อน</span></div>
+                <button class="opportunity-row" type="button">
+                  <span><strong>OUKEYA BLINK BLINK BLUSH โอกิยะ บลิงค์ บลิงค์ บลัช...</strong><small>high sales signal / strong rating</small></span>
+                  <em>Score 97</em>
+                </button>
+                <button class="opportunity-row" type="button">
+                  <span><strong>ตะกร้าบริษัท [ ขนาด 30 g. ] PALA รองพื้น SPF50+PA+++...</strong><small>high sales signal / strong rating</small></span>
+                  <em>Score 94</em>
+                </button>
+              </article>
+              
+              <article class="opportunity-group blue">
+                <div><h3>เหมาะทำคอนเทนต์</h3><span>ต่อยอดเป็นคอนเทนต์</span></div>
+                <button class="opportunity-row" type="button">
+                  <span><strong>เซราวี CERAVE SA Smoothing Cleanser เอสเอ สมูทติ้ง...</strong><small>healthy sales signal / strong rating</small></span>
+                  <em>Score 76</em>
+                </button>
+                <button class="opportunity-row" type="button">
+                  <span><strong>#ราคาต่อ 1 ห่อ ธูปสมุนไพร ธูปไล่ยุง ธูปกันยุง กลิ่นสมุนไพรรวม...</strong><small>healthy sales signal / strong rating</small></span>
+                  <em>Score 83</em>
+                </button>
+              </article>
+
+              <article class="opportunity-group amber">
+                <div><h3>เฝ้าดูก่อน</h3><span>ดูสัญญาณเพิ่มก่อน</span></div>
+                <button class="opportunity-row" type="button">
+                  <span><strong>[สินค้าสมนาคุณงดจำหน่าย] แถม 1 ซองต่อ 1 ออเดอร์ นมแพะ...</strong><small>healthy sales signal / strong rating</small></span>
+                  <em>Score 74</em>
+                </button>
+                <button class="opportunity-row" type="button">
+                  <span><strong>ดั๊บเบิ้ล เอ กระดาษถ่ายเอกสาร80แกรมA4 500แผ่น (Packกล่อง5รีม)...</strong><small>healthy sales signal / acceptable rating</small></span>
+                  <em>Score 75</em>
+                </button>
+              </article>
+
+              <article class="opportunity-group slate">
+                <div><h3>ข้อมูลยังไม่พอ</h3><span>ต้องเช็กเพิ่ม</span></div>
+                <button class="opportunity-row" type="button">
+                  <span><strong>WARRIX เสื้อโปโล รุ่น PIQUE (WA-212PLACL30)</strong><small>ต้องเช็กข้อมูลเพิ่มก่อนส่งต่อไปทำแผนขาย</small></span>
+                  <em>Score 61</em>
+                </button>
+                <button class="opportunity-row" type="button">
+                  <span><strong>GQ Everyday Sport Polo เสื้อโปโล สไตล์สปอร์ต ผ้าใส่สบาย...</strong><small>ต้องเช็กข้อมูลเพิ่มก่อนส่งต่อไปทำแผนขาย</small></span>
+                  <em>Score 61</em>
+                </button>
+              </article>
+            </div>
+          </section>
+
+          <section class="panel table-panel">
+            <div class="panel-header">
+              <div>
+                <h2>สินค้าเด่นวันนี้</h2>
+                <p>สรุปสินค้าจากข้อมูลนำเข้า</p>
+              </div>
+              <div class="table-tools">
+                <label class="table-sort-control">
+                  <span>เรียง</span>
+                  <select>
+                    <option value="sold-desc">ขายดีสุด</option>
+                    <option value="score-desc">คะแนนสูงสุด</option>
+                  </select>
+                </label>
+                <label class="table-page-size-control">
+                  <span>แสดง</span>
+                  <select>
+                    <option value="10">10 แถว</option>
+                    <option value="50">50 แถว</option>
+                  </select>
+                </label>
+                <button class="mini-icon" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"></circle><circle cx="12" cy="5" r="1"></circle><circle cx="12" cy="19" r="1"></circle></svg>
+                </button>
+              </div>
+            </div>
+            
+            <div class="table-scroll">
+              <table class="opportunity-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th class="image-col">รูป</th>
+                    <th>สินค้า</th>
+                    <th>แพลตฟอร์ม</th>
+                    <th>คะแนน ↓</th>
+                    <th>ราคา</th>
+                    <th>สัญญาณ</th>
+                    <th>คู่แข่ง</th>
+                    <th>ปัญหา</th>
+                    <th>ดู</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td class="image-col"><div class="img-placeholder"></div></td>
+                    <td>
+                      <div class="product-cell">
+                        <strong>🔥จัดส่งจากกรุงเทพ🔥 ของเล่นบล็อคตัวต่อ...</strong>
+                        <span class="product-category-chip">ค่าคอมพิเศษ</span>
+                      </div>
+                    </td>
+                    <td>Shopee</td>
+                    <td><span class="score-pill amber">69</span></td>
+                    <td>฿9</td>
+                    <td class="viral">🔥 400.0K</td>
+                    <td>High</td>
+                    <td>high sales signal</td>
+                    <td>
+                      <button class="inline-action icon-only" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td class="image-col"><div class="img-placeholder"></div></td>
+                    <td>
+                      <div class="product-cell">
+                        <strong>[ ลูกค้าใหม่ 0 บาท ] ลด 50 AC10 CKL / JMF 1011/PAE3027 เครื่องหนีบผม...</strong>
+                        <span class="product-category-chip">ค่าคอมพิเศษ</span>
+                      </div>
+                    </td>
+                    <td>Shopee</td>
+                    <td><span class="score-pill amber">69</span></td>
+                    <td>฿139</td>
+                    <td class="viral">🔥 100.0K</td>
+                    <td>High</td>
+                    <td>high sales signal</td>
+                    <td>
+                      <button class="inline-action icon-only" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td class="image-col"><div class="img-placeholder"></div></td>
+                    <td>
+                      <div class="product-cell">
+                        <strong>New กางเกงยีนส์ทรงหลวมสไตล์เกาหลี</strong>
+                        <span class="product-category-chip">ค่าคอมพิเศษ</span>
+                      </div>
+                    </td>
+                    <td>Shopee</td>
+                    <td><span class="score-pill amber">69</span></td>
+                    <td>฿129</td>
+                    <td class="viral">🔥 100.0K</td>
+                    <td>High</td>
+                    <td>high sales signal</td>
+                    <td>
+                      <button class="inline-action icon-only" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="table-footer">
+              <span>แสดง 1-10 จาก 359 รายการ</span>
+              <div class="pager">
+                <button type="button" disabled>‹</button>
+                <span>หน้า 1 / 36</span>
+                <button type="button">›</button>
+              </div>
+              <button class="view-all" type="button">เปิด Product Finder</button>
+            </div>
+          </section>
+
+          <section class="insight-grid">
+            <article class="panel rank-panel">
+              <div class="panel-header compact">
+                <div><h2>สินค้าคะแนนสูง</h2><p>สินค้านำเข้าที่คะแนนดีที่สุด</p></div>
+                <button class="view-link" type="button">ดูทั้งหมด</button>
+              </div>
+              <div class="rank-list">
+                <div class="rank-row">
+                  <span>1</span>
+                  <div><strong>OUKEYA BLINK BLINK BLUSH...</strong><small>Beauty</small></div>
+                  <mark class="score">97</mark>
+                </div>
+                <div class="rank-row">
+                  <span>2</span>
+                  <div><strong>ตะกร้าบริษัท [ ขนาด 30 g. ] PALA...</strong><small>Beauty</small></div>
+                  <mark class="score">94</mark>
+                </div>
+                <div class="rank-row">
+                  <span>3</span>
+                  <div><strong>Yuedpao Sportswear - Ultra Flow...</strong><small>Sports & Outdoors</small></div>
+                  <mark class="score">97</mark>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel rank-panel">
+              <div class="panel-header compact">
+                <div><h2>เหตุผลคะแนน</h2><p>เหตุผลที่ทำให้คะแนนสูง</p></div>
+                <button class="view-link" type="button">ดูทั้งหมด</button>
+              </div>
+              <div class="rank-list">
+                <div class="rank-row">
+                  <span>1</span>
+                  <div><strong>high sales signal</strong><small>OUKEYA BLINK BLINK BLUSH...</small></div>
+                  <mark class="tag">แอด</mark>
+                </div>
+                <div class="rank-row">
+                  <span>2</span>
+                  <div><strong>high sales signal</strong><small>ตะกร้าบริษัท [ ขนาด 30 g. ] PALA...</small></div>
+                  <mark class="tag">แอด</mark>
+                </div>
+                <div class="rank-row">
+                  <span>3</span>
+                  <div><strong>high sales signal</strong><small>Yuedpao Sportswear - Ultra Flow...</small></div>
+                  <mark class="tag">แอด</mark>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <aside class="panel ai-panel">
+          <div class="panel-header ai-top">
+            <div>
+              <h2>AI Next Actions</h2>
+              <p>ขั้นตอนต่อไปที่แนะนำโดย AI</p>
+            </div>
+            <div class="confidence"><small>Confidence</small><strong>86%</strong></div>
+          </div>
+          <div class="ai-action-list">
+            <article class="ai-action">
+              <span>1</span>
+              <div>
+                <strong>ดัน OUKEYA BLINK BLINK BLUSH เป็นสินค้าหลัก</strong>
+                <p>Score 97, ราคา ฿73, สถานะ Ready for ads</p>
+                <button type="button">ไปที่ Ads Angle</button>
+              </div>
+              <small>↗</small>
+            </article>
+            <article class="ai-action">
+              <span>2</span>
+              <div>
+                <strong>สร้างแผนคอนเทนต์จากสินค้าคะแนนสูง</strong>
+                <p>ใช้สินค้านำเข้าจริงจาก Shopee CSV เพื่อทำ hook, caption และ CTA</p>
+                <button type="button">ไปที่ Content Planner</button>
+              </div>
+              <small>↗</small>
+            </article>
+            <article class="ai-action">
+              <span>3</span>
+              <div>
+                <strong>เช็กตลาดก่อนลงงบ</strong>
+                <p>ดูร้าน/ครีเอเตอร์/มุมขายที่อาจชนกับสินค้าคะแนนสูง</p>
+                <button type="button">ไปที่ Market Density</button>
+              </div>
+              <small>↗</small>
+            </article>
+            <article class="ai-action">
+              <span>4</span>
+              <div>
+                <strong>สร้างข้อเสนอสำหรับสินค้าเด่น</strong>
+                <p>แปลงสินค้า score สูงเป็น bundle, free shipping angle หรือ live deal</p>
+                <button type="button">ไปที่ Offer Builder</button>
+              </div>
+              <small>↗</small>
+            </article>
+            <article class="ai-action">
+              <span>5</span>
+              <div>
+                <strong>เตรียมข้อความติดต่อร้าน/ครีเอเตอร์</strong>
+                <p>ใช้ชื่อสินค้าและ shop context จาก feed จริง</p>
+                <button type="button">ไปที่ Outreach</button>
+              </div>
+              <small>↗</small>
+            </article>
+          </div>
+          <div class="compliance-box">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            <div>
+              <strong>การใช้งานข้อมูลอย่างรับผิดชอบ</strong>
+              <p>ใช้ข้อมูลสาธารณะหรือข้อมูลที่คุณมีสิทธิ์เท่านั้น ไม่ bypass login, captcha, paywall หรือข้อจำกัดของแพลตฟอร์ม</p>
+              <button class="text-link" type="button">ดูแนวทางการใช้งาน</button>
+            </div>
+          </div>
+        </aside>
+
+      </section>
+    </div>
+  </main>
+</div>
+</body>
+</html>
